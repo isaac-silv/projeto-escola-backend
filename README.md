@@ -8,7 +8,7 @@ Adicione uma secret key no arquivo `.env`:
 TOKEN_SECRET='sua_secret_key_aqui'
 ```
 
-Configure o dialect de acordo com o banco de dado que você vai utilizar (MySQL ou MariaDB):
+Configure o dialect de acordo com o banco de dado que você vai utilizar (MySQL ou MariaDB), em `src/config/database.js`:
 
 ```javascript
 require('dotenv').config();
