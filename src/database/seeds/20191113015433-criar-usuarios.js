@@ -5,8 +5,8 @@ module.exports = {
     'users',
     [
       {
-        nome: 'admin',
-        email: 'admin@email.com',
+        nome: 'Jhon Doe',
+        email: 'teste@email.com',
         password_hash: await bcryptjs.hash('123456', 8),
         created_at: new Date(),
         updated_at: new Date(),
