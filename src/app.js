@@ -12,11 +12,9 @@ import tokenRoutes from './routes/tokenRoutes';
 import alunoRoutes from './routes/alunoRoutes';
 import fotoRoutes from './routes/fotoRoutes';
 
-const whiteList = [
-  '177.66.86.25:3000',
-];
+// const whiteList = [];
 
-const corsOptions = {
+/* const corsOptions = {
   origin: function (origin, callback) {
     if(whiteList.indexOf(origin) !== -1 || !origin) {
       callback(null, true);
@@ -24,7 +22,8 @@ const corsOptions = {
       callback(new Error('Not allowed by CORS'));
     }
   }
-};
+}; 
+*/
 
 class App {
   constructor() {
@@ -34,7 +33,7 @@ class App {
   }
 
   middlewares() {
-    this.app.use(cors(corsOptions));
+    this.app.use(cors());
     this.app.use(helmet());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
