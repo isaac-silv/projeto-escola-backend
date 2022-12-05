@@ -1,12 +1,12 @@
 "use strict";require('dotenv').config();
 
 module.exports = {
-  dialect: 'mariadb',
-  host: process.env.DATABASE_HOST,
-  port: process.env.DATABASE_PORT,
-  username: process.env.DATABASE_USERNAME,
-  password: process.env.DATABASE_PASSWORD,
-  database: process.env.DATABASE,
+  dialect: 'mysql',
+  host: process.env.MYSQLHOST,
+  port: process.env.MYSQLPORT,
+  username: process.env.MYSQLUSER,
+  password: process.env.MYSQLPASSWORD,
+  database: process.env.MYSQLDATABASE,
   dialectOptions: {
     timezone: 'America/Sao_Paulo',
   },
