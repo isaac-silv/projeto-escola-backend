@@ -32,7 +32,7 @@ exports. default = async (req, res, next) => {
 
     req.userId = id;
     req.userEmail = email;
-    req.nome = nome;
+    req.userNome = nome;
     return next();
   } catch (e) {
     return res.status(401).json({

@@ -1,9 +1,9 @@
 "use strict";Object.defineProperty(exports, "__esModule", {value: true});class HomeController {
   async index(req, res) {
     const user = {
-      id: req.id,
-      nome: req.nome,
-      email: req.email
+      id: req.userId,
+      nome: req.userNome,
+      email: req.userEmail
     }
     res.json(user);
   }
