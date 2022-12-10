@@ -3,7 +3,7 @@ import User from '../models/User';
 
 class TokenController {
   async store(req, res) {
-    const { email = '', password = '' } = req.body;
+    const { email = '', password = '', nome = '' } = req.body;
 
     if (!email || !password) {
       return res.status(401).json({
@@ -11,7 +11,7 @@ class TokenController {
       });
     }
 
-    const user = await User.findOne({ where: { email } });
+    const user = await User.findOne({ where: { email, nome } });
 
     if (!user) {
       return res.status(401).json({
@@ -26,11 +26,11 @@ class TokenController {
     }
 
     const { id } = user;
-    const token = jwt.sign({ id, email }, process.env.TOKEN_SECRET, {
+    const token = jwt.sign({ id, email, nome }, process.env.TOKEN_SECRET, {
       expiresIn: process.env.TOKEN_EXPIRATION,
     });
 
-    return res.json({ token, user: { nome: user.nome, id, email } });
+    return res.json({ token, user: { nome, id, email } });
   }
 }
 
