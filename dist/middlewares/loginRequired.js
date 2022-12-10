@@ -14,12 +14,13 @@ exports. default = async (req, res, next) => {
 
   try {
     const dados = _jsonwebtoken2.default.verify(token, process.env.TOKEN_SECRET);
-    const { id, email } = dados;
+    const { id, email, nome } = dados;
 
     const user = await _User2.default.findOne({
       where: {
         id,
         email,
+        nome,
       },
     });
 
@@ -31,6 +32,7 @@ exports. default = async (req, res, next) => {
 
     req.userId = id;
     req.userEmail = email;
+    req.nome = nome;
     return next();
   } catch (e) {
     return res.status(401).json({
