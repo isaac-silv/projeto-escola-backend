@@ -1,6 +1,11 @@
 class HomeController {
   async index(req, res) {
-    res.json(true);
+    const user = {
+      id: req.id,
+      nome: req.nome,
+      email: req.email
+    }
+    res.json(user);
   }
 }
 
