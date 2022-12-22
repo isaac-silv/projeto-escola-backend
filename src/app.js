@@ -4,9 +4,9 @@ import './database';
 
 import express from 'express';
 import cors from 'cors';
-import helmet from 'helmet';
+// import helmet from 'helmet';
 
-import homeRoutes from './routes/homeRoutes';
+import checkRoutes from './routes/checkRoutes';
 import userRoutes from './routes/userRoutes';
 import tokenRoutes from './routes/tokenRoutes';
 import alunoRoutes from './routes/alunoRoutes';
@@ -25,28 +25,17 @@ import fotoRoutes from './routes/fotoRoutes';
 }; 
 */
 
-class App {
-  constructor() {
-    this.app = express();
-    this.middlewares();
-    this.routes();
-  }
+const app = express();
 
-  middlewares() {
-    this.app.use(cors());
-    this.app.use(helmet());
-    this.app.use(express.urlencoded({ extended: true }));
-    this.app.use(express.json());
-    this.app.use('/images/', express.static(resolve(__dirname, '..', 'uploads', 'images')));
-  }
+app.use(cors());
+// app.use(helmet());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-  routes() {
-    this.app.use('/', homeRoutes);
-    this.app.use('/users/', userRoutes);
-    this.app.use('/tokens/', tokenRoutes);
-    this.app.use('/alunos/', alunoRoutes);
-    this.app.use('/fotos/', fotoRoutes);
-  }
-}
+app.use('/', checkRoutes);
+app.use('/users/', userRoutes);
+app.use('/tokens/', tokenRoutes);
+app.use('/alunos/', alunoRoutes);
+app.use('/fotos/', fotoRoutes);
 
-export default new App().app;
+export default app;
