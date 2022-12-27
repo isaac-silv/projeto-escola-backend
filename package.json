@@ -33,8 +33,5 @@
     "mysql2": "^2.3.3",
     "sequelize": "^6.6.1"
   },
-  "description": "",
-  "engines": {
-    "node": "16"
-  }
+  "description": ""
 }
